@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scrivi & Ascolta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- Stili -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tesseract.js (OCR in-browser) -->
+  <script src="https://unpkg.com/tesseract.js@v5.0.0/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Scrivi &amp; Ascolta</h1>
+    <p>Scrivi con il pennino, riconosci il testo e ascoltalo in voce.</p>
+  </header>
+
+  <main class="app-main">
+    <section class="canvas-container">
+      <canvas id="handwritingCanvas"></canvas>
+      <div id="status" class="status">Pronto</div>
+    </section>
+
+    <section class="controls-and-text">
+      <div class="controls">
+        <button id="clearCanvasBtn" class="btn primary">
+          🧽 Pulisci foglio
+        </button>
+        <button id="recogniseBtn" class="btn accent">
+          ✍️ Riconosci testo
+        </button>
+        <button id="recogniseUpperBtn" class="btn accent">
+          ✍️ Riconosci in STAMPATELLO
+        </button>
+        <button id="clearTextBtn" class="btn">
+          🗑 Pulisci testo
+        </button>
+        <button id="readAloudBtn" class="btn success">
+          🔊 Leggi ad alta voce
+        </button>
+      </div>
+
+      <div class="text-size-control">
+        <label for="fontSizeRange">Dimensione testo:</label>
+        <input
+          type="range"
+          id="fontSizeRange"
+          min="16"
+          max="36"
+          value="22"
+        />
+        <span id="fontSizeValue">22 px</span>
+      </div>
+
+      <div class="voice-control">
+        <label for="voiceSelect">Voce:</label>
+        <select id="voiceSelect">
+          <option>Caricamento voci…</option>
+        </select>
+      </div>
+
+      <label for="recognizedText" class="text-label">
+        Testo riconosciuto:
+      </label>
+      <textarea id="recognizedText" rows="5"></textarea>
+    </section>
+  </main>
+
+  <!-- Script principale -->
+  <script src="script.js"></script>
+</body>
+</html>
